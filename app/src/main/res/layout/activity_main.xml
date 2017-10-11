@@ -7,12 +7,48 @@
     tools:context="com.interview.raihan.mycalculator.MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:id="@+id/CurrentText"
+        android:layout_width="359dp"
+        android:layout_height="51dp"
+        android:editable="true"
+        android:gravity="right|center_vertical"
+        android:paddingRight="15dp"
+        android:text="Second !"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.135" />
+
+    <TextView
+        android:id="@+id/PreviousText"
+        android:layout_width="358dp"
+        android:layout_height="39dp"
+        android:gravity="right|center_vertical"
+        android:paddingRight="15dp"
+        android:text="First !"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/Expression"
+        android:layout_width="356dp"
+        android:layout_height="24dp"
+        android:gravity="right|center_vertical"
+        android:paddingRight="15dp"
+        android:text="Expression"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.082" />
+
 
 </android.support.constraint.ConstraintLayout>
