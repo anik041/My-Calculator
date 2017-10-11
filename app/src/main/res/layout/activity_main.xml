@@ -6,26 +6,163 @@
     android:layout_height="match_parent"
     tools:context="com.interview.raihan.mycalculator.MainActivity">
 
+    <Button
+        android:id="@+id/button_Back"
+        android:layout_width="82dp"
+        android:layout_height="67dp"
+        android:text="B"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="98dp"
+        tools:layout_editor_absoluteY="129dp" />
+
+    <Button
+        android:id="@+id/button_Percentage"
+        android:layout_width="82dp"
+        android:layout_height="67dp"
+        android:text="%"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="180dp"
+        tools:layout_editor_absoluteY="129dp" />
+
+    <Button
+        android:id="@+id/button_Power"
+        android:layout_width="82dp"
+        android:layout_height="67dp"
+        android:text="^"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="286dp"
+        tools:layout_editor_absoluteY="129dp" />
+
+    <Button
+        android:id="@+id/button_Clear"
+        android:layout_width="82dp"
+        android:layout_height="67dp"
+        android:text="C"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="129dp" />
+
+    <Button
+        android:id="@+id/button_0"
+        android:layout_width="82dp"
+        android:layout_height="67dp"
+        android:text="0"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="428dp" />
+
+    <Button
+        android:id="@+id/button_Decimal"
+        android:layout_width="82dp"
+        android:layout_height="67dp"
+        android:text="."
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="98dp"
+        tools:layout_editor_absoluteY="428dp" />
+
+    <Button
+        android:id="@+id/button_9"
+        android:layout_width="82dp"
+        android:layout_height="67dp"
+        android:text="9"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="180dp"
+        tools:layout_editor_absoluteY="352dp" />
+
+    <Button
+        android:id="@+id/button_Devide"
+        android:layout_width="82dp"
+        android:layout_height="67dp"
+        android:text="/"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="286dp"
+        tools:layout_editor_absoluteY="428dp" />
+
+    <Button
+        android:id="@+id/button_7"
+        android:layout_width="82dp"
+        android:layout_height="67dp"
+        android:text="7"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="352dp" />
+
+    <Button
+        android:id="@+id/button_8"
+        android:layout_width="82dp"
+        android:layout_height="67dp"
+        android:text="8"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="98dp"
+        tools:layout_editor_absoluteY="352dp" />
+
+    <Button
+        android:id="@+id/button_Equal"
+        android:layout_width="82dp"
+        android:layout_height="67dp"
+        android:layout_marginLeft="8dp"
+        android:text="="
+        android:textSize="30sp"
+        app:layout_constraintLeft_toRightOf="@+id/button_Decimal"
+        tools:layout_editor_absoluteY="428dp" />
+
+    <Button
+        android:id="@+id/button_Multiply"
+        android:layout_width="82dp"
+        android:layout_height="67dp"
+        android:text="*"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="286dp"
+        tools:layout_editor_absoluteY="352dp" />
+
+    <Button
+        android:id="@+id/button_5"
+        android:layout_width="82dp"
+        android:layout_height="67dp"
+        android:text="5"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="98dp"
+        tools:layout_editor_absoluteY="277dp" />
+
+    <Button
+        android:id="@+id/button_3"
+        android:layout_width="82dp"
+        android:layout_height="67dp"
+        android:text="3"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="180dp"
+        tools:layout_editor_absoluteY="203dp" />
+
+    <Button
+        android:id="@+id/button_Subtract"
+        android:layout_width="82dp"
+        android:layout_height="67dp"
+        android:text="-"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="286dp"
+        tools:layout_editor_absoluteY="277dp" />
+
     <TextView
         android:id="@+id/CurrentText"
-        android:layout_width="359dp"
-        android:layout_height="51dp"
+        android:layout_width="364dp"
+        android:layout_height="47dp"
         android:editable="true"
         android:gravity="right|center_vertical"
         android:paddingRight="15dp"
         android:text="Second !"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.135" />
+        app:layout_constraintVertical_bias="0.132"
+        tools:layout_editor_absoluteX="8dp" />
 
     <TextView
         android:id="@+id/PreviousText"
-        android:layout_width="358dp"
-        android:layout_height="39dp"
+        android:layout_width="363dp"
+        android:layout_height="42dp"
         android:gravity="right|center_vertical"
         android:paddingRight="15dp"
         android:text="First !"
@@ -34,21 +171,67 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="8dp" />
 
     <TextView
         android:id="@+id/Expression"
-        android:layout_width="356dp"
-        android:layout_height="24dp"
+        android:layout_width="362dp"
+        android:layout_height="23dp"
         android:gravity="right|center_vertical"
         android:paddingRight="15dp"
         android:text="Expression"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.082" />
+        app:layout_constraintVertical_bias="0.083"
+        app:layout_constraintHorizontal_bias="0.526" />
+
+    <Button
+        android:id="@+id/button_4"
+        android:layout_width="82dp"
+        android:layout_height="67dp"
+        android:text="4"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="277dp" />
+
+    <Button
+        android:id="@+id/button_1"
+        android:layout_width="82dp"
+        android:layout_height="67dp"
+        android:text="1"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="203dp" />
+
+    <Button
+        android:id="@+id/button_2"
+        android:layout_width="82dp"
+        android:layout_height="67dp"
+        android:text="2"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="98dp"
+        tools:layout_editor_absoluteY="203dp" />
+
+    <Button
+        android:id="@+id/button_6"
+        android:layout_width="82dp"
+        android:layout_height="67dp"
+        android:text="6"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="180dp"
+        tools:layout_editor_absoluteY="277dp" />
+
+    <Button
+        android:id="@+id/button_Add"
+        android:layout_width="82dp"
+        android:layout_height="67dp"
+        android:text="+"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="286dp"
+        tools:layout_editor_absoluteY="203dp" />
 
 
 </android.support.constraint.ConstraintLayout>
