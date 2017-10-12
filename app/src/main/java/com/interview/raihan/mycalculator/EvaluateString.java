@@ -1,5 +1,6 @@
 package com.interview.raihan.mycalculator;
 
+import java.text.DecimalFormat;
 import java.util.Stack;
 
 /**
@@ -17,8 +18,9 @@ public class EvaluateString {
         {
             return "Error";
         }
+       // DecimalFormat df = new DecimalFormat("###.##############");
 
-        return Double.toString(output);
+        return Double.toString(output);//df.format(output);
     }
 
     public static double EvaluateDouble(final String str) {

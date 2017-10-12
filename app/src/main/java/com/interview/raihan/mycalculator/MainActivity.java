@@ -1,5 +1,6 @@
 package com.interview.raihan.mycalculator;
 
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,11 +15,13 @@ public class MainActivity extends AppCompatActivity {
     private TextView _currentText;
     private boolean _haveDot;
     private boolean _haveError;
+    private boolean _gotResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         init();
         SetNumericOnClickListener();
         SetOperationOnClickListener();
@@ -29,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         this._currentText = (TextView) findViewById(R.id.CurrentText);
         this._haveDot = false;
         this._haveError = false;
+        this._gotResult = false;
     }
 
     private void SetNumericOnClickListener()
@@ -37,14 +41,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Button button = (Button) v;
-                if(_haveError)
+                if(!_gotResult)
                 {
-                    _haveDot = false;
-                    _currentText.setText("");
-                    _haveError = false;
+                    _currentText.append(button.getText());
                 }
-                _currentText.append(button.getText());
-
             }
         };
 
@@ -60,13 +60,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Button button = (Button) v;
-                if(_haveError)
-                {
-                    _haveDot = false;
-                    _currentText.setText("");
-                    _haveError = false;
-                }
-                if(!_haveDot) {
+
+                if(!_haveDot && !_gotResult) {
                     _currentText.append(button.getText());
                     _haveDot = true;
                 }
@@ -80,13 +75,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Button button = (Button) v;
-                if(_haveError)
+
+                if(!_haveError)
                 {
+                    _gotResult = false;
                     _haveDot = false;
-                    _currentText.setText("");
-                    _haveError = false;
+                    _currentText.append(button.getText());
                 }
-                _currentText.append(button.getText());
+
             }
         };
 
@@ -104,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 Button button = (Button) v;
                 _currentText.setText("");
                 _haveDot = false;
+                _gotResult = false;
                 _haveError = false;
             }
         });
@@ -113,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.button_Back).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(!_haveError)
+                if(!_gotResult)
                 {
                     Button button = (Button) v;
                     String str = _currentText.getText().toString();
@@ -132,15 +129,16 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.button_Equal).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(!_haveError)
+                if(!_gotResult && !_haveError)
                 {
                     Button button = (Button) v;
                     String str = _currentText.getText().toString();
                     if (str != null && str.length() > 0) {
                         _haveDot = false;
                         String output = EvaluateString.EvaluateExpression(str);
-                        if(output.contains("Error")) _haveError = true;
+                        if(output.contains("Error") || output.contains("Infinity")) _haveError = true;
                         _currentText.setText(output);
+                        _gotResult = true;
                     }
                 }
 
