@@ -9,7 +9,8 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private int[] _numericButtons = {R.id.button_0,R.id.button_1,R.id.button_2,R.id.button_3,R.id.button_4,R.id.button_5,R.id.button_6,R.id.button_7,R.id.button_8,R.id.button_9};
-    private int[] _operatorButtons = {R.id.button_Add,R.id.button_Subtract,R.id.button_Multiply,R.id.button_Divide,R.id.button_Braket_Open,R.id.button_Braket_Close};
+    private int[] _operatorButtons = {R.id.button_Add,R.id.button_Subtract,R.id.button_Multiply,R.id.button_Divide,R.id.button_Braket_Open,R.id.button_Braket_Close,R.id.button_Sin,R.id.button_Cos,R.id.button_Tan,R.id.button_Sqrt,R.id.button_Power};
+
     private TextView _currentText;
     private boolean _haveDot;
     private boolean _haveError;
