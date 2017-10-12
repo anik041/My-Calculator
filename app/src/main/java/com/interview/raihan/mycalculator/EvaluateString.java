@@ -18,9 +18,13 @@ public class EvaluateString {
         {
             return "Error";
         }
-       // DecimalFormat df = new DecimalFormat("###.##############");
-
-        return Double.toString(output);//df.format(output);
+        DecimalFormat df = new DecimalFormat("#");
+        df.setMaximumFractionDigits(12);
+        if(output> 999999999999.0 || output < -999999999999.0)
+        {
+            df = new DecimalFormat("0.#####E0");
+        }
+        return df.format(output);
     }
 
     public static double EvaluateDouble(final String str) {
@@ -80,8 +84,8 @@ public class EvaluateString {
                 if (eat('(')) { // parentheses
                     x = parseExpression();
                     eat(')');
-                } else if ((ch >= '0' && ch <= '9') || ch == '.') { // numbers
-                    while ((ch >= '0' && ch <= '9') || ch == '.') nextChar();
+                } else if ((ch >= '0' && ch <= '9') || ch == '.' || ch == 'E') { // numbers
+                    while ((ch >= '0' && ch <= '9') || ch == '.'|| ch == 'E') nextChar();
                     x = Double.parseDouble(str.substring(startPos, this.pos));
                 } else if (ch >= 'a' && ch <= 'z') { // functions
                     while (ch >= 'a' && ch <= 'z') nextChar();
