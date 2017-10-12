@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         this._haveDot = false;
         this._haveError = false;
         this._gotResult = false;
+        InitializeCurrentScreen();
     }
 
     private void SetNumericOnClickListener()
@@ -43,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
                 Button button = (Button) v;
                 if(!_gotResult)
                 {
-                    _currentText.append(button.getText());
+                    if(CheckCurrentScreenIsEqualZero())_currentText.setText(button.getText());
+                    else _currentText.append(button.getText());
                 }
             }
         };
@@ -80,7 +82,9 @@ public class MainActivity extends AppCompatActivity {
                 {
                     _gotResult = false;
                     _haveDot = false;
-                    _currentText.append(button.getText());
+
+                    if(CheckCurrentScreenIsEqualZero())_currentText.setText(button.getText());
+                    else _currentText.append(button.getText());
                 }
 
             }
@@ -98,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Button button = (Button) v;
-                _currentText.setText("");
+                _currentText.setText("0");
                 _haveDot = false;
                 _gotResult = false;
                 _haveError = false;
@@ -114,11 +118,16 @@ public class MainActivity extends AppCompatActivity {
                 {
                     Button button = (Button) v;
                     String str = _currentText.getText().toString();
-                    if (str != null && str.length() > 0) {
-                        if(str.charAt(str.length() - 1) =='.') _haveDot = false;
-                        str = str.substring(0, str.length() - 1);
-                        _currentText.setText(str);
+                    int length = str.length();
+                    if (str != null && length > 0 && !(length == 1 && str.charAt(0) == '0')) {
+                        if(str.charAt(length - 1) =='.') _haveDot = false;
+                        str = str.substring(0, length - 1);
+
+                        if(str == null || str.length() == 0 || (str.length() == 1 && str.charAt(0) == '0')) InitializeCurrentScreen();
+                        else _currentText.setText(str);
                     }
+
+
                 }
 
             }
@@ -138,12 +147,22 @@ public class MainActivity extends AppCompatActivity {
                         String output = EvaluateString.EvaluateExpression(str);
                         if(output.contains("Error") || output.contains("Infinity")) _haveError = true;
                         _currentText.setText(output);
-                        _gotResult = true;
+                        _gotResult = CheckCurrentScreenIsEqualZero() ? false : true;
                     }
                 }
 
 
             }
         });
+    }
+
+    private boolean CheckCurrentScreenIsEqualZero()
+    {
+        String str = _currentText.getText().toString();
+        return str == null || str == "" || (str.length() == 1 && str.charAt(0) == '0');
+    }
+    private void InitializeCurrentScreen()
+    {
+        _currentText.setText("0");
     }
 }

@@ -14,6 +14,7 @@ public class EvaluateString {
         double output = 0.0;
         try {
             output = EvaluateDouble(str);
+            if(output == -0.0) output = 0.0;
         }catch (Exception e)
         {
             return "Error";
